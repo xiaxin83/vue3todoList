@@ -1,0 +1,25 @@
+{
+  "name": "todolist-v3",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "element-plus": "^2.2.17",
+    "normalize.css": "^8.0.1",
+    "shortid": "^2.2.16",
+    "vue": "^3.2.25",
+    "vue-i18n": "^9.2.2",
+    "vue-router": "^4.1.5"
+  },
+  "devDependencies": {
+    "@types/node": "^18.7.23",
+    "@vitejs/plugin-vue": "^2.3.4",
+    "sass": "^1.55.0",
+    "sass-loader": "^13.0.2",
+    "vite": "^2.9.15"
+  }
+}
