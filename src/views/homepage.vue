@@ -76,15 +76,13 @@ export default {
   width: 100%;
   height: 100vh;
   max-width: 100%;
-  // overflow: auto;
+
   flex-direction: column;
 
   background: linear-gradient(to right, #ffb0bb, #ffb7b3, #ffc0a4, #ffc2a1);
   .container {
     width: 500px;
     height: auto;
-    // transition: all 60ms ease-out;
-    // transform: scale(1.2);
     box-sizing: border-box;
     background-color: #f2f2f2;
     border-radius: 5%;

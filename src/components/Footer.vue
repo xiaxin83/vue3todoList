@@ -56,16 +56,14 @@ export default defineComponent({
   padding: 10px;
 
   .filter {
-    // display: inline-block;
     margin: 0;
     padding: 0;
     margin-right: 5px;
-    // width: auto;
-    // padding: 1px;
+
     height: 40px;
     font-size: 10px;
     box-sizing: border-box;
-    // background-color: #fe7345;
+
     color: #fe7345;
     cursor: pointer;
     border-radius: 10px;
