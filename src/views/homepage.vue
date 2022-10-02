@@ -48,7 +48,7 @@ export default {
       }
     });
     watch(
-      todos.value,
+      todos,
       (value) => {
         console.log(value);
         localStorage.setItem("todokey", JSON.stringify(value));
