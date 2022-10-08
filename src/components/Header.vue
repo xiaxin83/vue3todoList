@@ -27,29 +27,13 @@
 </template>
 
 <script>
-import { ElMessage } from "element-plus";
-import { defineComponent, ref } from "vue";
-import shortid from "shortid";
+import { defineComponent } from "vue";
+
+import useTodoContent from "../hooks/useTodoContent";
 export default defineComponent({
   emits: ["add-todo"],
   setup(props, context) {
-    let todoContent = ref("");
-    const emitAddTodo = () => {
-      if (todoContent.value == "")
-        return ElMessage({
-          type: "error",
-          message: "please input your Todo",
-        });
-      const todo = {
-        id: shortid.generate(),
-        content: todoContent.value,
-        completed: false,
-      };
-      context.emit("add-todo", todo);
-
-      todoContent.value = "";
-    };
-
+    const { todoContent, emitAddTodo } = useTodoContent(context);
     return {
       todoContent,
       emitAddTodo,
