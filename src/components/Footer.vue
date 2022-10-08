@@ -34,14 +34,12 @@ export default defineComponent({
     },
   },
   setup(props) {
-    const buttonShow = ref(false);
     const filters = [
       { label: "all", value: "all" },
       { label: "done", value: "done" },
       { label: "incomplete", value: "todo" },
     ];
-
-    return { filters, buttonShow };
+    return { filters };
   },
 });
 </script>

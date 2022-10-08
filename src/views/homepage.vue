@@ -15,7 +15,15 @@
 import Header from "@/components/Header.vue";
 import List from "@/components/List.vue";
 import Footer from "@/components/Footer.vue";
-import { defineComponent, ref, provide, computed, watch, onMounted } from "vue";
+import {
+  defineComponent,
+  ref,
+  provide,
+  computed,
+  watch,
+  onMounted,
+  toRef,
+} from "vue";
 
 export default {
   name: "Home",
@@ -53,8 +61,8 @@ export default {
     });
     onMounted(() => {
       let todokey = localStorage.getItem("todokey");
-      todos = JSON.parse(todokey) || "[]";
-      // console.log(todokey);
+      // todos = toRef(JSON.parse(todokey));
+      console.log(toRef(JSON.parse(todokey)));
     });
     return {
       doneItem,
