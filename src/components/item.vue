@@ -81,9 +81,28 @@ li:last-child {
   border-bottom: none;
 }
 .todoItem.done {
+  background-color: #fe7345;
+  border-radius: 5px;
+  animation: flipInX-132cabf7 0.75s ease-in-out both;
   label {
     text-decoration: line-through;
     font-style: italic;
+  }
+}
+@keyframes flipInX-132cabf7 {
+  0% {
+    transform: rotateX(90deg);
+    opacity: 0;
+  }
+  40% {
+    transform: rotateX(-10deg);
+  }
+  70% {
+    transform: rotateX(10deg);
+  }
+  100% {
+    transform: rotateX(0deg);
+    opacity: 1;
   }
 }
 </style>

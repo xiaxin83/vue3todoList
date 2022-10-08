@@ -44,6 +44,7 @@ export default defineComponent({
         completed: false,
       };
       context.emit("add-todo", todo);
+
       todoContent.value = "";
     };
 
