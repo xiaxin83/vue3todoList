@@ -1,11 +1,11 @@
 <template lang="">
   <div class="todo-footer">
     <span class="left_text" v-if="todos.length == 0 ? false : true"
-      >{{ todos.length }}item left</span
+      >{{ todos.length }}{{ $t("animations.item") }}</span
     >
     <el-button
       v-if="todos.length == 0 ? false : true"
-      type="text"
+      link
       v-for="filter in filters"
       :key="filter.value"
       class="filter"

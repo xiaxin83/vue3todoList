@@ -1,5 +1,19 @@
 <template>
   <div class="box">
+    <el-select
+      v-model="LValue"
+      class="m-2"
+      placeholder="chooseLanguage"
+      size="small"
+      @change="LanguageChange"
+    >
+      <el-option
+        v-for="item in options"
+        :key="item.value"
+        :label="item.label"
+        :value="item.value"
+      />
+    </el-select>
     <div class="container">
       <Header :tid="todos.length" @add-todo="addTodo" />
       <List :todos="filteredTodos" />
@@ -15,6 +29,8 @@
 import Header from "@/components/Header.vue";
 import List from "@/components/List.vue";
 import Footer from "@/components/Footer.vue";
+import { useI18n } from "vue-i18n";
+
 import {
   defineComponent,
   ref,
@@ -34,6 +50,7 @@ export default {
     provide("doneItem", doneItem);
     let todos = ref([]);
     const filter = ref("all");
+    const { locale } = useI18n();
     // 定义添加任务的函数
     const addTodo = (todo) => todos.value.push(todo);
     // 删除
@@ -44,6 +61,11 @@ export default {
     function doneItem(index) {
       console.log(todos[index].completed);
       todos[index].completed = !todos[index].completed;
+    }
+    // 国际化
+    function LanguageChange(val) {
+      console.log(val);
+      locale.value = val == "en" ? "en" : "zh";
     }
     const filteredTodos = computed(() => {
       switch (filter.value) {
@@ -67,6 +89,14 @@ export default {
       let todokey = localStorage.getItem("todokey");
       todos.value = JSON.parse(todokey) || [];
     });
+    const LValue = ref("English");
+    const options = ref([
+      { value: "zh", label: "简体中文" },
+      {
+        value: "en",
+        label: "English",
+      },
+    ]);
     return {
       doneItem,
       todos,
@@ -75,6 +105,9 @@ export default {
       filter,
       filteredTodos,
       // todokey,
+      options,
+      LValue,
+      LanguageChange,
     };
   },
 };

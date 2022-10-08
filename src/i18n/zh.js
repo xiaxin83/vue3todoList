@@ -8,6 +8,13 @@ export default {
     slot1: "{c} 蒜", // 命名插入值 写法
     hello: "{0} world {1}", // 数组写法
     repeat: "@:animations.lily <重复的", // 文本引用
+    title: "今天我需要做什么呢",
+    add: "添加新的todo...",
+    item: "条数据",
+    all: "全部",
+    done: "已完成",
+    incomplete: "未完成",
+    message: "请添加一个todo",
 
     // Modifier 修饰符  > 还可自定义修饰符规则，此处不做介绍，需要用到再去看文档
     sample1: "liljiahui niu bi",

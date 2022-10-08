@@ -1,27 +1,29 @@
 <template lang="">
-  <header>
-    <div class="top">
-      <div class="img-wrapper">
-        <img src="../assets/note.svg" alt="" />
+  <div>
+    <header>
+      <div class="top">
+        <div class="img-wrapper">
+          <img src="../assets/note.svg" alt="" />
+        </div>
+        <div class="text">
+          <p>To-Do-List</p>
+        </div>
       </div>
-      <div class="text">
-        <p>To-Do-List</p>
+      <div class="bottom">
+        <p>~{{ $t("animations.title") }}~</p>
       </div>
-    </div>
-    <div class="bottom">
-      <p>~Today I need to~</p>
-    </div>
-  </header>
-  <form class="form-wrapper" @submit.native.prevent>
-    <div class="form-input">
-      <input
-        type="text"
-        v-model="todoContent"
-        @keyup.native.enter="emitAddTodo"
-        placeholder="Add new todo..."
-      />
-    </div>
-  </form>
+    </header>
+    <form class="form-wrapper" @submit.native.prevent>
+      <div class="form-input">
+        <input
+          type="text"
+          v-model="todoContent"
+          @keyup.native.enter="emitAddTodo"
+          :placeholder="$t('animations.add')"
+        />
+      </div>
+    </form>
+  </div>
 </template>
 
 <script>

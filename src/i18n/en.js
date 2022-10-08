@@ -8,7 +8,13 @@ export default {
     slot1: "{c} recoil", // 命名插入值 写法
     hello: "{1} world {0}", // 数组写法
     repeat: "@:animations.lily", // 文本引用
-
+    title: "Today I need to",
+    add: "Add new todo...",
+    item: "item left",
+    all: "all",
+    done: "done",
+    incomplete: "incomplete",
+    message: "please input your Todo",
     // Modifier 修饰符
     sample1: "lil JIA hui niu bi",
     test1: "@.upper:animations.sample1  ceshi",
