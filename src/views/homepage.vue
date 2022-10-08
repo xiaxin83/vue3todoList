@@ -30,16 +30,8 @@ import Header from "@/components/Header.vue";
 import List from "@/components/List.vue";
 import Footer from "@/components/Footer.vue";
 import { useI18n } from "vue-i18n";
-
-import {
-  defineComponent,
-  ref,
-  provide,
-  computed,
-  watch,
-  onMounted,
-  toRef,
-} from "vue";
+import useFileteredTodos from "../hooks/useFileteredTodos";
+import { ref, provide, watch, onMounted } from "vue";
 
 export default {
   name: "Home",
@@ -49,7 +41,7 @@ export default {
     provide("del", del);
     provide("doneItem", doneItem);
     let todos = ref([]);
-    const filter = ref("all");
+    const { filter, filteredTodos } = useFileteredTodos(todos);
     const { locale } = useI18n();
     // 定义添加任务的函数
     const addTodo = (todo) => todos.value.push(todo);
@@ -67,16 +59,7 @@ export default {
       console.log(val);
       locale.value = val == "en" ? "en" : "zh";
     }
-    const filteredTodos = computed(() => {
-      switch (filter.value) {
-        case "done":
-          return todos.value.filter((todo) => todo.completed);
-        case "todo":
-          return todos.value.filter((todo) => !todo.completed);
-        default:
-          return todos.value;
-      }
-    });
+
     watch(
       todos,
       (value) => {
