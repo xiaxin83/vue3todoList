@@ -55,14 +55,17 @@ export default {
           return todos.value;
       }
     });
-    watch(todos.value, (value) => {
-      console.log(value);
-      localStorage.setItem("todokey", JSON.stringify(value));
-    });
+    watch(
+      todos,
+      (value) => {
+        console.log(value);
+        localStorage.setItem("todokey", JSON.stringify(value));
+      },
+      { deep: true }
+    );
     onMounted(() => {
       let todokey = localStorage.getItem("todokey");
-      // todos = toRef(JSON.parse(todokey));
-      console.log(toRef(JSON.parse(todokey)));
+      todos.value = JSON.parse(todokey) || [];
     });
     return {
       doneItem,
